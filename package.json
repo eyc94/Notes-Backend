@@ -1,0 +1,20 @@
+{
+    "name": "notes-backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eyc94/Notes-Backend.git"
+    },
+    "author": "EC",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/eyc94/Notes-Backend/issues"
+    },
+    "homepage": "https://github.com/eyc94/Notes-Backend#readme"
+}
