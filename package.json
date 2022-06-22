@@ -16,5 +16,8 @@
     "bugs": {
         "url": "https://github.com/eyc94/Notes-Backend/issues"
     },
-    "homepage": "https://github.com/eyc94/Notes-Backend#readme"
+    "homepage": "https://github.com/eyc94/Notes-Backend#readme",
+    "dependencies": {
+        "express": "^4.18.1"
+    }
 }
