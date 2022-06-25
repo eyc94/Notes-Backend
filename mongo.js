@@ -22,16 +22,22 @@ mongoose
     .then((result) => {
         console.log("Connected");
 
-        const note = new Note({
-            content: "HTML is Easy",
-            date: new Date(),
-            important: true
-        });
+        // const note = new Note({
+        //     content: "HTML is Easy",
+        //     date: new Date(),
+        //     important: true
+        // });
 
-        return note.save();
-    })
-    .then(() => {
-        console.log("Note saved!");
-        return mongoose.connection.close();
-    })
-    .catch((err) => console.log(err));
+        // return note.save();
+        Note.find({}).then(result => {
+            result.forEach(note => {
+                console.log(note);
+            });
+            mongoose.connection.close();
+        });
+    });
+    // .then(() => {
+    //     console.log("Note saved!");
+    //     return mongoose.connection.close();
+    // })
+    // .catch((err) => console.log(err));
