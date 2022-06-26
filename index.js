@@ -68,14 +68,6 @@ app.delete("/api/notes/:id", (request, response) => {
     response.status(204).end();
 });
 
-const generateId = () => {
-    const maxId = notes.length > 0
-        ? Math.max(...notes.map(n => n.id))
-        : 0;
-
-    return maxId + 1;
-};
-
 app.post("/api/notes", (request, response) => {
     const body = request.body;
 
