@@ -5,9 +5,10 @@ const Note = require("./models/note");
 
 const app = express();
 
+app.use(express.static("build"));
 app.use(express.json());
 app.use(cors());
-app.use(express.static("build"));
+
 
 const requestLogger = (request, response, next) => {
     console.log("Method:", request.method);
@@ -63,10 +64,11 @@ app.get("/api/notes/:id", (request, response, next) => {
 });
 
 app.delete("/api/notes/:id", (request, response) => {
-    const id = Number(request.params.id);
-    notes = notes.filter(note => note.id !== id);
-
-    response.status(204).end();
+    Note.findByIdAndRemove(request.params.id)
+        .then(result => {
+            response.status(204).end();
+        })
+        .catch(error => next(error));
 });
 
 app.post("/api/notes", (request, response) => {
