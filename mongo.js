@@ -19,7 +19,7 @@ const Note = mongoose.model("Note", noteSchema);
 
 mongoose
     .connect(url)
-    .then((result) => {
+    .then(() => {
         console.log("Connected");
         Note.find({}).then(result => {
             result.forEach(note => {
