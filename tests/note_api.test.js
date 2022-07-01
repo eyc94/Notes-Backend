@@ -86,9 +86,9 @@ test("A note can be deleted", async () => {
         .expect(204);
 
     const notesAtEnd = await helper.notesInDb();
-    expect(notesAtEnd).toHaveLength(helper.initialNotes.length + 1);
+    expect(notesAtEnd).toHaveLength(helper.initialNotes.length - 1);
     const contents = notesAtEnd.map(r => r.content);
-    expect(contents).not.toContain(noteTodelete.content);
+    expect(contents).not.toContain(noteToDelete.content);
 });
 
 afterAll(() => {
