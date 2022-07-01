@@ -71,7 +71,7 @@ test("A specific note can be viewed", async () => {
     const resultNote = await api
         .get(`/api/notes/${noteToView.id}`)
         .expect(200)
-        .expect("Content-Length", /application\/json/);
+        .expect("Content-Type", /application\/json/);
 
     const processedNoteToView = JSON.parse(JSON.stringify(noteToView));
     expect(resultNote.body).toEqual(processedNoteToView);
@@ -82,7 +82,7 @@ test("A note can be deleted", async () => {
     const noteToDelete = notesAtStart[0];
 
     await api
-        .delete(`/api/notes/${noteToDelete}`)
+        .delete(`/api/notes/${noteToDelete.id}`)
         .expect(204);
 
     const notesAtEnd = await helper.notesInDb();
