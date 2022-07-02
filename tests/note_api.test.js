@@ -50,7 +50,6 @@ describe("Viewing a specific note", () => {
 
     test("Fails with statuscode 404 if note does not exist", async () => {
         const validNonExistingId = await helper.nonExistingId();
-        console.log(validNonExistingId);
         await api
             .get(`/api/notes/${validNonExistingId}`)
             .expect(404);
