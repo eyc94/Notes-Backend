@@ -4,14 +4,15 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "NODE_ENV=production node index.js",
-        "dev": "NODE_ENV=development nodemon index.js",
+        "start": "cross-env NODE_ENV=production node index.js",
+        "dev": "cross-env NODE_ENV=development nodemon index.js",
         "build:ui": "rm -rf build && cd ../Full-Stack-Open/05.\\ Testing\\ React\\ Apps/notes-frontend/ && npm run build && cp -r build ../../../Notes-Backend",
         "deploy": "git push heroku master",
         "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy",
         "logs:prod": "heroku logs --tail",
         "lint": "eslint .",
-        "test": "NODE_ENV=test jest --verbose --runInBand --forceExit"
+        "test": "cross-env NODE_ENV=test jest --verbose --runInBand --forceExit",
+        "start:test": "cross-env NODE_ENV=test node index.js"
     },
     "repository": {
         "type": "git",
